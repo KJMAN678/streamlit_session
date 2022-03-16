@@ -1,0 +1,2 @@
+# アプリ実行
+streamlit run app.py
