@@ -37,7 +37,7 @@ with col1:
 
 with col2:
   if st.button("削除", key=3): 
-    st.session_state["text_list"].remove(text)  
+    st.session_state["text_list"].remove(text)
       
 for output_text in st.session_state["text_list"]:
   st.write("", output_text)
@@ -74,3 +74,39 @@ def add_container(row_num):
       
 for i in range(st.session_state["add_container"]):
   add_container(i)
+  
+# ボタンを押すとヴィジェットを追加する
+import uuid 
+
+st.subheader("5.ボタンを押すとヴィジェットを追加する")
+
+if 'unique_id' not in st.session_state:
+  st.session_state["unique_id"] = []
+
+col5, col6 = st.columns(2)
+
+with col5:
+  if st.button("追加", key=6):
+    st.session_state["unique_id"].append(uuid.uuid1())
+
+with col6:
+  if st.button("削除", key=7):
+    st.session_state["unique_id"].pop(-1)
+    
+for unique_id in st.session_state["unique_id"]:
+  
+  with st.container():
+    col7, col8 = st.columns(2)
+
+    with col7:
+      slider_value = st.slider(
+        "数値",
+        min_value=0,
+        max_value=14,
+        value=0,
+        key=unique_id
+      )
+    with col8:
+      st.write("")
+      st.write("")
+      st.write(slider_value)
