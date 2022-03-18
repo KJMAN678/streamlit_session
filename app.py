@@ -76,8 +76,6 @@ for i in range(st.session_state["add_container"]):
   add_container(i)
   
 # ボタンを押すとヴィジェットを追加する
-import uuid 
-
 st.subheader("5.ボタンを押すとヴィジェットを追加する")
 
 if 'unique_id' not in st.session_state:
